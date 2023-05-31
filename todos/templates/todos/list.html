@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Todo Lists
+{% endblock title %}
+
+{% block content %}
+ <header>
+    <nav>
+        <a href="{% url 'todos_list' %}">Main Page</a>
+
+    </nav>
+ </header>
+ <main>
+    <div>
+        <h1>My Lists</h1>
+        <table class="todos-table">
+            <tr>
+                <th>Name</th>
+                <th>Number of items</th>                    </th>
+            </tr>
+            {% for todo in todos_list %}
+                <tr>
+                    <td>{{ todo.name }}</td>
+                    <td> </td>
+                </tr>
+            {% empty %}
+                <p> There are no todo lists.</p>
+            {% endfor %}
+        </table>
+    </div>
+ </main>
+{% endblock content %}
