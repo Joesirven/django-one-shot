@@ -10,3 +10,11 @@ def todos_list_list(request):
         "todos_list": todos,
     }
     return render(request, "todos/list.html", context)
+
+
+def todo_list_details(request, id):
+    todo_list_details = TodoList.objects.get(id=id)
+    context = {
+        "todo_list_details": todo_list_details,
+    }
+    return render(request, "todos/detail.html", context)

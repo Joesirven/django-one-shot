@@ -7,7 +7,7 @@ Todo Lists
 {% block content %}
  <header>
     <nav>
-        <a href="{% url 'todos_list' %}">Main Page</a>
+        <a href="{% url 'todos_list_list' %}">Main Page</a>
 
     </nav>
  </header>
@@ -19,9 +19,9 @@ Todo Lists
                 <th>Name</th>
                 <th>Number of items</th>                    </th>
             </tr>
-            {% for todo in todos_list %}
+            {% for todo in todos_list_list %}
                 <tr>
-                    <td>{{ todo.name }}</td>
+                    <td><a href="{{ todos_list_list }}"> {{ todo.name }}</a></td>
                     <td> </td>
                 </tr>
             {% empty %}

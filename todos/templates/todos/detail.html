@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ tod_item_all.task }}
+{% endblock title %}
+
+{% block content %}
+ <header>
+    <nav>
+        <a href="{% url 'todos_list_list' %}">Main Page</a>
+    </nav>
+ </header>
+ <main>
+    <div>
+        <h1>{{ todo_list_details.name }}</h1>
+        <h2>Tasks</h2>
+
+        <table class="todos-table">
+            <tr>
+                <th>Task</th>
+                <th>Due Date</th>
+            </tr>
+            {% for task in todo_list_details.items.all %}
+            <tr>
+                <td>{{ task.task }}</td>
+                <td>{{ task.due_date }} </td>
+            </tr>
+        </table>
+        {% empty %}
+        <p> There are no tasks.</p>
+    {% endfor %}
+    </div>
+ </main>
+{% endblock content %}
